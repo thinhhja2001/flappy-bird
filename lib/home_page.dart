@@ -4,6 +4,7 @@ import 'package:flappy_bird/barrier.dart';
 import 'package:flappy_bird/bird.dart';
 import 'package:flappy_bird/my_cover_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -228,14 +229,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<int> getBestScore(int currentScore) async {
-    // SharedPreferences pref = await SharedPreferences.getInstance();
-    // int bestScore = pref.getInt('bestScore') ?? 0;
-    int bestScore = 0;
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    int bestScore = pref.getInt('bestScore') ?? 0;
     if (bestScore < currentScore) {
       bestScore = currentScore;
     }
-    // pref.setInt('bestScore', bestScore);
-    // print('best score is ${pref.getInt('bestScore')}');
+    pref.setInt('bestScore', bestScore);
+    print('best score is ${pref.getInt('bestScore')}');
     return bestScore;
   }
 
@@ -269,7 +269,8 @@ class _HomePageState extends State<HomePage> {
                           Column(
                             children: [
                               const Text('BEST'),
-                              Text("${snapshot.data ?? 0}"),
+                              Text(
+                                  "${snapshot.data == null ? 0 : snapshot.data!.toDouble() ~/ 100}"),
                             ],
                           ),
                         ],
