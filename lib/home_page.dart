@@ -257,6 +257,9 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.white,
                         ),
                       ),
+                      Container(
+                        height: 20,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -274,27 +277,29 @@ class _HomePageState extends State<HomePage> {
                             ],
                           ),
                         ],
-                      )
-                    ],
-                  ),
-                  actions: [
-                    GestureDetector(
-                      onTap: resetGame,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(5),
-                        child: Container(
-                          padding: const EdgeInsets.all(7),
-                          color: Colors.white,
-                          child: const Text(
-                            "PLAY AGAIN",
-                            style: TextStyle(
-                              color: Colors.brown,
+                      ),
+                      Container(
+                        height: 20,
+                      ),
+                      GestureDetector(
+                        onTap: resetGame,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(5),
+                          child: Container(
+                            padding: const EdgeInsets.all(7),
+                            color: Colors.white,
+                            child: const Text(
+                              "PLAY AGAIN",
+                              style: TextStyle(
+                                color: Colors.brown,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    )
-                  ],
+                      )
+                    ],
+                  ),
+                  actions: [],
                 );
               });
         });
