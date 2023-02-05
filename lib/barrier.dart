@@ -18,7 +18,15 @@ class MyBarrier extends StatelessWidget {
       alignment: Alignment((2 * barrierX + barrierWidth) / (2 - barrierWidth),
           isThisBottomBarBarrier ? 1 : -1),
       child: Container(
-        color: Colors.green,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(
+                isThisBottomBarBarrier
+                    ? 'assets/images/pipe-red.png'
+                    : 'assets/images/pipe-red-rotated.png',
+              ),
+              fit: BoxFit.fill),
+        ),
         width: MediaQuery.of(context).size.width * barrierWidth / 2,
         height: MediaQuery.of(context).size.height * 3 / 4 * barrierHeight / 2,
       ),
